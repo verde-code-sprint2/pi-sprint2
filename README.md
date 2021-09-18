@@ -1,2 +1,4 @@
-# pi-sprint2
-Repositório para o projeto de caderno de campo digital para a sprint 2
+# AgricoBook
+Projeto de Caderno de Campo.
+
+ ![Protótipo Agricobook](https://github.com/verde-code/agricobook/blob/main/agricobook-prototipo.png)

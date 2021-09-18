@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h1>Calculo de média de lucros</h1>
+    
+    <div id="item_1" style="display: block;">
+        <h2>Insira os dados:</h2>
+        <div id="values">
+            <label for="date_mes_1">Data 1:</label> <input type="date" name="date_mes_1" id="date_mes_1">
+            <label for="vlr_mes_1">Digite o valor:</label><input type="text" name="vlr_mes_1" id="vlr_mes_1"><br>
+            <label for="date_mes_2">Data 2:</label> <input type="date" name="date_mes_2" id="date_mes_2">
+            <label for="vlr_mes_2">Digite o valor:</label><input type="text" name="vlr_mes_2" id="vlr_mes_2"><br>
+        </div>
+        <input type="button" value="Quer adicionar mais um valor?" onclick="adicionar()">
+        <input type="button" value="Valores" onclick="calculo_media_valor()">
+    </div>
+    <div id="item_2" style="display: none;">
+        <p>o valor médio entre o periodo de <b id="mes_primeiro"></b> e <b id="mes_ultimo"></b> é de: R$<span id="valor_total"></span></p>
+    </div>
+</body>
+</html>
+<script>
+    //definindo a quantidade de valores armazenados inicialmente, esse valor vai ser incrementado conforme foram se adicionando mais valores
+    let dates = 2;
+
+    //definindo as constantes com elementos html
+    const values = document.getElementById("values")
+    const mes_1 = document.getElementById("date_mes_1")
+    const mes_2 = document.getElementById("date_mes_2")
+    const item_1 = document.getElementById("item_1")
+    const item_2 = document.getElementById("item_2")
+    const show_mes_primeiro = document.getElementById("mes_primeiro")
+    const show_mes_ultimo = document.getElementById("mes_ultimo")
+    const show_valor_total = document.getElementById("valor_total")
+    
+    //função para adicionar mais valores, caso necessario
+    function adicionar() {
+        //conforme forem se adicionando mais inputs, o date aumenta
+        dates ++;
+        var dates_vlr = '<label for="vlr_mes'+dates+'"> Digite o valor:</label><input type="text" name="vlr_mes_'+dates+'" id="vlr_mes_'+dates+'">'
+        var dates_mes = '<label for="date_mes_'+dates+'"> Data '+dates+':</label> <input type="date" name="date_mes_'+dates+'" id="date_mes_'+dates+'">'
+        values.innerHTML += dates_mes + dates_vlr + '<br>'
+    }
+
+    //função que faz o calculo da media
+    function calculo_media_valor(){
+
+        //determindo variavel com a soma de todos os valores
+        let v_media_1 = 0;
+
+        //loop para somar todos os valores
+        for (let index = 0; index < dates; index++) {
+            var ind = index + 1
+            v_media_1 += Number(document.getElementById('vlr_mes_'+ind+'').value)
+        }
+
+        //determinando a media através de um calculo simples
+        var media = Number(v_media_1 / dates)
+
+        //aquisição e formatação de data para apresentação do resultado  
+        var date_mes_ultimo = new Date(document.getElementById('date_mes_'+dates+'').value)
+        var date_mes_primeiro = new Date(document.getElementById('date_mes_1').value)
+        let dataFormatada_primeiro = ((date_mes_primeiro.getDate() )) + "/" + ((date_mes_primeiro.getMonth() + 1)) + "/" + date_mes_primeiro.getFullYear(); 
+        let dataFormatada_ultimo = ((date_mes_ultimo.getDate() )) + "/" + ((date_mes_ultimo.getMonth() + 1)) + "/" + date_mes_ultimo.getFullYear(); 
+
+        //escondendo uma div e mostrando outra
+        item_1.style.display = 'none'
+        item_2.style.display = 'block'
+
+        //adicionando os novos valores na div que estava escondida
+        show_mes_primeiro.innerHTML = dataFormatada_primeiro
+        show_mes_ultimo.innerHTML = dataFormatada_ultimo
+        show_valor_total.innerHTML = media.toFixed(2)
+    }
+
+</script>
