@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
+    <script src="vendor/Chart.js"></script>
+    <script src="js/legend.js"></script>
+    <script src="js/demo.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="./assets/images/logo.ico" alt="">
+        <ul>
+            <a href=""><li>Consulta</li></a>
+            <a href=""><li>Configurações</li></a>
+            <a href=""><li>Ajuda</li></a>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="graphic">
+            <h4>Resultados</h4>
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <canvas id="lineChart" width="600px" height="300px"></canvas>
+                    <div id="lineLegend"></div>
+                </div> 
+        </div> 
+
+        <div class="images">
+            <img class="date" src="./assets/images/calendario.png" alt="">
+            <img class="temperature" src="./assets/images/temperature.png" alt="">
+        </div>
+
+        <div class="collect">
+            <h4>Coleta</h4>
+            <div class="box">
+            <div class="titles">
+                <b>Remessa</b>
+                <b>Responsável</b>
+                <b>Hora</b>
+            </div>
+            <div class="conteudo">
+                <p>218834</p>
+                <p>Pedro</p>
+                <p>09:30</p>
+            </div>
+            <div class="conteudo">
+                <p>218834</p>
+                <p>Guilherme</p>
+                <p>09:30</p>
+            </div>
+            <div class="conteudo">
+                <p>218834</p>
+                <p>Matheus</p>
+                <p>09:30</p>
+            </div>
+            <div class="conteudo">
+                <p>218834</p>
+                <p>Lucas</p>
+                <p>09:30</p>
+            </div>
+            <div class="conteudo">
+                <p>218834</p>
+                <p>Brandão</p>
+                <p>09:30</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
