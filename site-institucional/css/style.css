@@ -147,8 +147,8 @@ ul a:hover::after {
     width: 250px;
     font: 30px;
     font-size: 48px;
-    margin-left: 10vw;
-    margin-top: 13vh;
+    margin-left: 9vw;
+    margin-top: 2vh;
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
 }

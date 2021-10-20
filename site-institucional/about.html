@@ -115,3 +115,15 @@
     </footer>
 </body>
 </html>
+<script>
+    document.getElementById('user').addEventListener('click', (e) => {
+    e.preventDefault();
+    var dropdown =  document.getElementById('dropdown')
+    if(dropdown.style.display == "flex"){
+        dropdown.style.display = "none"
+    }else{
+        dropdown.style.display = "flex"
+
+    }
+})
+</script>
