@@ -1,0 +1,18 @@
+
+.book {
+    margin: 10px;
+    background-image: url(../assets/images/a.jpeg);
+    height: 40vh;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    justify-content: center;
+    align-self: center;
+}
+
+.content {
+    padding: 0;
+}
+
+.content {
+    margin: 0 30px;
+}
