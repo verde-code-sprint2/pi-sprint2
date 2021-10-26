@@ -2,8 +2,15 @@ body {
     background-image: url(../assets/images/cafe-principal-blur.jpg);
 }
 
-.box_login {
-    height: 60vh;
+.container_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.boxes_login {
+    height: max-content;
     width: 30vw;
     background-color: #121213;
     display: flex;
@@ -11,19 +18,20 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 70px;
+    padding: 2%;
 }
 
 
-.boxes_login input{
+.boxes_login input {
     display: flex;
-    opacity: 100%;
+    /* opacity: 100%; */
     padding: 10px 60px;
     border-radius: 20px;
     text-align: center;
+    margin-bottom: 20px;
 }
+
 .boxes_login button {
-    display: flex;
-    opacity: 100%;
     padding: 10px 60px;
     border-radius: 20px;
     font-weight: bold;
@@ -31,14 +39,7 @@ body {
     background-color: #F7B267;
 }
 
-#ipt_pass {
-    margin-top: 50px;
-}
-
-.boxes_login div img{
-    display: flex;
-    width: 10vw;
-    justify-items: center;
-    align-items: center;
+.boxes_login div img {
+    width: 5vw;
     margin-bottom: 10px;
 }

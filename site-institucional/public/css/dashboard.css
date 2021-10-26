@@ -3,6 +3,7 @@ body {
     padding: 0;
     display: flex;
     background-color: #fff;
+    height: 100vh;
 }
 
 .navbar {
@@ -57,9 +58,13 @@ a:hover {
 
 .container {
     display: flex;
+    height: 100vh;
+    width: 80vw;
     flex-direction: column;
     align-items: center;
     padding: 0 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .images {
@@ -88,4 +93,20 @@ a:hover {
     display: flex;
     justify-content: space-between;
     margin: 0 15px;
+}
+
+.alertas {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10%;
+    align-items: center;
+}
+
+.alertas h2 {
+    background-color: #ddd;
+    color: #020202;
+}
+
+.div_alertas {
+    overflow-y: auto;
 }

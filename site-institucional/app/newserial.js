@@ -29,7 +29,7 @@ class ArduinoRead {
             }
             console.log('Data', data_float);
             this.listData.push(data_float);
-        }, 2000);
+        }, 1000);
     }
 
 
