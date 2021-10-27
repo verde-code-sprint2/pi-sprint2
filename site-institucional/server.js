@@ -42,6 +42,7 @@ app.get('/weather', async (req,res) => {
 })
   
 app.get('/altitude', async (req,res) => {
+  
   const { lat, lng } = req.query;
   const response = await axios.get(`https://maps.googleapis.com/maps/api/elevation/json?locations=${lat}%2C${lng}&key=AIzaSyCms5xrwnXKB-6oygcvu7gRBxo_oF4HBl0`)
   res.json(response.data)
