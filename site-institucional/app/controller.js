@@ -8,8 +8,6 @@ router.get('/lm35', (request, response, next) => {
     let sum = ArduinoDataTemp.List.reduce((a, b) => a + b, 0);
     let average = (sum / ArduinoDataTemp.List.length).toFixed(2);
 
- 
-
     response.json({
         data: ArduinoDataTemp.List,
         total: ArduinoDataTemp.List.length,
@@ -21,7 +19,7 @@ router.get('/lm35', (request, response, next) => {
 
 router.get('/', (request, response) => {
 
-    let sumTemp = ArduinoDataTemp.List.reduce((a, b) => a + b[1], 0);
+    let sumTemp = ArduinoDataTemp.List.reduce((total, b) => total + b[1], 0);
     let averageTemp = (sumTemp / ArduinoDataTemp.List.length).toFixed(2);
 
     let sumMoisture = ArduinoDataTemp.List.reduce((a, b) => a + b[0], 0);
@@ -29,10 +27,12 @@ router.get('/', (request, response) => {
 
     const alertasTemp = []
     const alertasUmidade = []
+    // [[80,23],[90,24],[85,22]]
     ArduinoDataTemp.List.forEach(data => {
         if (data[0] < 80) {
             alertasUmidade.push('Alerta de umidade baixa - nivel em '+ data[0] + new Date().toLocaleDateString('pt-BR', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
         }
+        
         if (data[1] < 18) {
             alertasTemp.push('Alerta de temperatura baixa - ' + data[1].toFixed()+'°C '+ new Date().toLocaleDateString('pt-BR', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
         } else if (data[1] > 22) {
