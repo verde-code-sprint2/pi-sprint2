@@ -27,7 +27,7 @@ class ArduinoRead {
                     this.listData.pop();
                 } 
             }
-            console.log('Data', data_float);
+            // console.log('Data', data_float);
             this.listData.push(data_float);
         }, 1000);
     }
@@ -59,7 +59,6 @@ class ArduinoRead {
                     this.fake_data();
                 });
                 parser.on('data', (data) => {
-                    console.log('data', data.split(' - ').map(Number))// === true && item));
                     this.listData.push(data.split(' - ').map(Number));
                 });
             } catch (e) {
