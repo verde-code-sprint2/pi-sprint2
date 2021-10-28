@@ -1,6 +1,7 @@
 body {
     background-color: #F5F6F7;
 }
+
 .content {
     background-color: #F5F6F7;
 }
@@ -13,7 +14,7 @@ body {
     margin: 0 20px;
 }
 
-.banner{
+.banner {
     margin-top: 20px;
     color: #fff;
     height: 1000px;
@@ -36,4 +37,13 @@ body {
     background-size: cover;
 
     background-image: url(../assets/images/agro.png);
+}
+
+.content .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 50px;
+    text-align: justify;
 }

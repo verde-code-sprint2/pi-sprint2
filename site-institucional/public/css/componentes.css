@@ -1,11 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #e2dede;
-}
+/* Header */
 
 .header {
     background-color: #121213;
@@ -134,77 +127,21 @@ ul a:hover::after {
     background-color: #121213;
 }
 
-.banner {
+#dropdown b {
+    color: #a0a0a0;
+    margin-bottom: 20px;
+}
+
+#dropdown a {
+    margin-left: -7px;
+}
+
+#dropdown a:hover {
     color: #fff;
-    height: 600px;
-    background-image: url(../assets/images/cafe-principal.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    transition: 0.5s;
 }
 
-.container .banner p {
-    margin: 0;
-    padding: 0;
-    width: 250px;
-    font-size: 42px;
-    margin-left: 400px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bolder;
-}
-
-.social {
-    background-color: #fff;
-    padding: 50px 0;
-}
-
-.social .container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.social h2 {
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    border-radius: 30px;
-    align-self: center;
-    justify-self: center;
-    text-align: center;
-    color: #121213;
-    margin: 0;
-}
-
-.social .boxes {
-    display: flex;
-    align-items: flex-start;
-
-}
-
-.social .box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 33%;
-}
-
-.social .box img {
-    width: 150px;
-    align-self: center;
-    margin-bottom: 25px;
-}
-
-.box h4 {
-    margin-bottom: 10px;
-}
-
-.social .titulo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-}
+/* Footer */
 
 .footer {
     background-color: #121213;
@@ -235,20 +172,6 @@ ul a:hover::after {
 }
 
 .footer .container h4:hover {
-    color: #fff;
-    transition: 0.5s;
-}
-
-#dropdown b {
-    color: #a0a0a0;
-    margin-bottom: 20px;
-}
-
-#dropdown a {
-    margin-left: -7px;
-}
-
-#dropdown a:hover {
     color: #fff;
     transition: 0.5s;
 }
@@ -313,4 +236,60 @@ footer .container {
 
 .copyright span {
     color: #fff;
+}
+
+/* Cards */
+
+.social {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.social .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.social h2 {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: #121213;
+    margin: 0;
+}
+
+.social .boxes {
+    display: flex;
+    align-items: flex-start;
+}
+
+.social .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 33%;
+}
+
+.social .box img {
+    width: 150px;
+    align-self: center;
+    margin-bottom: 25px;
+}
+
+.box h4 {
+    margin-bottom: 10px;
+}
+
+.social p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    text-align: justify;
 }

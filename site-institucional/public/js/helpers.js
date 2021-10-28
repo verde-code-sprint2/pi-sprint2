@@ -74,7 +74,7 @@ const searchAlt = async (value) => {
 
   const { lat, lng } = dataAddressParsed.results[0].geometry.location;
   const dataAlt = await 
-  fetch(`http://localhost:3000/altitude?`+ new URLSearchParams({
+  fetch(`http://localhost:3000/api/altitude?`+ new URLSearchParams({
     lat,
     lng,
   }).toString(),{

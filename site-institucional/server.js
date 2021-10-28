@@ -49,7 +49,7 @@ app.get('/altitude', async (req,res) => {
   res.json(response.data)
 })
 
-app.use('/api', require('./controller'));
+app.use('/api', require('./app/controller'));
 
 app.use(express.static(path.resolve('./','public')))
 
