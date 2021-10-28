@@ -55,7 +55,7 @@
 ul a::after {
     content: '';
     position: absolute;
-    background-color: #fff;
+    background-color: #f2f2f2;
     width: 0;
     height: 3px;
     left: 0;
@@ -64,7 +64,7 @@ ul a::after {
 }
 
 ul a:hover {
-    color: #fff;
+    color: #f2f2f2;
 }
 
 ul a:hover::after {
@@ -223,13 +223,13 @@ footer .container {
 .copyright {
     display: flex;
     flex-direction: row;
-    background-color: #212121;
+    background-color: #121213;
 }
 
 .copyright .container {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 2%;
 }
@@ -285,6 +285,13 @@ footer .container {
 
 .box h4 {
     margin-bottom: 10px;
+}
+
+.social .titulo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    text-align: justify;
 }
 
 .social p {

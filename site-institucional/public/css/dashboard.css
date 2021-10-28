@@ -1,7 +1,7 @@
 body {
     display: flex;
+    flex-direction: row;
     background-color: #fff;
-    height: 100vh;
 }
 
 .navbar {
@@ -36,16 +36,6 @@ a:hover {
     transition: 0.5s;
 }
 
-.graphic h4 {
-    font-size: 28px;
-    margin-left: 10px;
-}
-
-.graphic {
-    color: #000;
-    margin: 0 30px;
-}
-
 .date {
     height: 300px;
 }
@@ -60,9 +50,17 @@ a:hover {
     width: 80vw;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding: 0 30px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.container div section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .images {
@@ -81,9 +79,6 @@ a:hover {
 
 .titles {
     margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin: 0 18px;
 }
 
@@ -96,15 +91,31 @@ a:hover {
 .alertas {
     display: flex;
     flex-direction: column;
-    border-radius: 10%;
     align-items: center;
+    border: solid 1px #212121;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #212121;
 }
 
-.alertas h2 {
-    background-color: #ddd;
-    color: #020202;
+#div_alertas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.div_alertas {
+#div_alertas div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px 20px 20px;
+}
+
+#div_alertas div p {
+    margin-top: 5px;
+}
+
+#div_alertas {
     overflow-y: auto;
 }

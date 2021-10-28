@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrotis - Dashboard</title>
     <!-- Estilos -->
-    <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/globais.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,12 +41,20 @@
 
     <div class="container">
         <div>
-            <h2>Sensor DHT11 - Temperatura/Umidade</h2>
+
             <section>
+                <h2>Sensor DHT11 - Temperatura/Umidade</h2>
                 <h3>Média temperatura: <label id='averageTemp'>0.00</label></h3>
                 <h3>Média umidade: <label id='averageMoisture'>0.00</label></h3>
                 <h3>Altitude: <label id='alt'>0.00</label></h3>
-                <h3>Lote #001</h3>
+                <span>
+                    <span>Lote </span>
+                    <select>
+                        <option value="001">001</option>
+                        <option value="002">002</option>
+                        <option value="003">003</option>
+                    </select>
+                </span>
             </section>
             <section style="width:80vw">
                 <canvas id="chart"></canvas>
@@ -54,7 +62,14 @@
         </div>
         <div class="alertas">
             <h2>Alertas</h2>
-            <div id="div_alerta"></div>
+            <div id="div_alertas">
+                <div id="temp">
+                    <h3>Temperatura</h3>
+                </div>
+                <div id="umidade">
+                    <h3>Umidade</h3>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -167,9 +182,13 @@
             //Dados de temperatura vindos da API
             chart.data.datasets[1].data.push(parseFloat(data[1]));
             chart.update();
-            document.getElementById('div_alerta').innerHTML = '';
+            document.getElementById('temp').innerHTML = '<h3>Temperatura</h3>';
             obj.alertasTemp.forEach(alerta => {
-                document.getElementById('div_alerta').innerHTML += '<p>' + alerta + '</p>';
+                document.getElementById('temp').innerHTML += '<p>' + alerta + '</p>';
+            })
+            document.getElementById('umidade').innerHTML = '<h3>Umidade</h3>';
+            obj.alertasUmidade.forEach(alerta => {
+                document.getElementById('umidade').innerHTML += '<p>' + alerta + '</p>';
             })
         });
         document.getElementById('averageTemp').textContent = obj.averageTemp + '°C';
