@@ -29,4 +29,5 @@ ___
 <img src="./assets/pequeno.jpeg" width="200" height="200px">
 <img src="./assets/rosario.jpg" width="200" height="200px">
 <img src="./assets/gustavo.jpg" width="200px" height="200">
+<img src="./assets/souza.jpeg" width="200px" height="200">
 </div>
