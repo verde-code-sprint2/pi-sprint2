@@ -9,9 +9,7 @@ Projeto de Caderno de Campo digital.
 
 
 - Faça um clone do projeto com o comando
-```sh
-git clone https://github.com/verde-code-sprint2/pi-sprint2.git
-```
+```git clone https://github.com/verde-code-sprint2/pi-sprint2.git```
 
 ou [clique aqui](https://github.com/verde-code-sprint2/pi-sprint2/archive/refs/heads/main.zip) para fazer o download.
 
