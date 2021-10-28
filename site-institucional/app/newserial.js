@@ -59,6 +59,8 @@ class ArduinoRead {
                     this.fake_data();
                 });
                 parser.on('data', (data) => {
+                    // console.log('data', data)
+                    // console.log('data',data.split(' - ').map(Number))
                     this.listData.push(data.split(' - ').map(Number));
                 });
             } catch (e) {

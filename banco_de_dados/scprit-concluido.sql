@@ -1,4 +1,4 @@
-create database Agrotis;
+create database agrotis;
 use agrotis;
 
 create table planta (
@@ -14,6 +14,19 @@ insert into planta values
 (null,'Café Arábica',17.00,23.00,45,45),
 (null,'Café Robusto',17.00,23.00,35,60);
 
+
+create table usuario(
+id_usuario int primary key auto_increment,
+senha varchar(50),
+email varchar (45),
+fk_lider int
+) auto_increment = 30;
+alter table usuario add foreign key(fk_lider) references usuario(id_usuario);
+
+insert into usuario values
+(null,'101215','Agricultor@bandtec.com.br', null),
+(null,'202122','gerente@bandtec.com.br', null);
+
 create table propriedade (
 id_propriedade int primary key auto_increment,
 nome varchar (45),
@@ -26,8 +39,6 @@ insert into propriedade values
 (null,'Fazenda do Carmo','487.770.078.16','30'),
 (null,'Grupo Bom futuro','586.950.128.03','31');
 
-
-
 create table insumo (
 id_insumo int primary key auto_increment,
 nome_insumo varchar(45),
@@ -37,16 +48,6 @@ data_aplicacao date
 insert into insumo values 
 (null,'Adubo','2021-07-05'),
 (null,'Semente','2021-05-12');
-
-create table usuario(
-id_usuario int primary key auto_increment,
-senha varchar(50),
-email varchar (45)
-) auto_increment = 30;
-
-insert into usuario values
-(null,'101215','Agricultor@bandtec.com.br'),
-(null,'202122','gerente@bandtec.com.br');
 
 create table lote (
 id_lote int primary key auto_increment,
@@ -62,8 +63,8 @@ foreign key (fk_insumo) references insumo (id_insumo)
 )auto_increment = 40;
 
 insert into lote values 
-(null,101,380 ,1.000,10,1,20),
-(null,102,320,900,11,2,21);
+(null,1,380,1000,10,1,20),
+(null,2,320,900,11,2,21);
 
 create table sensores (
 id_sensores int primary key auto_increment,
@@ -73,9 +74,8 @@ foreign key (fk_lote) references lote (id_lote)
 )auto_increment=50;
 
 insert into sensores values 
-(null,'THT11',40),
-(null,'THT11',41);
-
+(null,'DHT11',40),
+(null,'DHT11',41);
 
 create table safra (
 id_safra int primary key auto_increment,
@@ -111,7 +111,6 @@ foreign key (fk_safra) references safra (id_safra),
 fk_usuario int,
 foreign key (fk_usuario) references usuario (id_usuario)
 )auto_increment=80;
-desc safra_funcionario;
 
 
 insert into safra_funcionario values 
@@ -131,7 +130,9 @@ select * from  safra_funcionario;
 
 
 
-select * from sensorlogs join sensores on sensores.id_sensores = sensorlogs.fk_sensores join lote on sensores.fk_lote = lote.id_lote; -- onde cada sensorlog está localizado em cada lote 
+select * from sensorlogs 
+join sensores on sensores.id_sensores = sensorlogs.fk_sensores 
+join lote on sensores.fk_lote = lote.id_lote; -- onde cada sensorlog está localizado em cada lote 
 
 
 select * from safra_funcionario  -- qual o lote o usuario está responsavel
@@ -139,5 +140,5 @@ join safra on safra_funcionario.fk_safra = safra.id_safra
 join usuario on safra_funcionario.fk_usuario = usuario.id_usuario
 join lote on safra.fk_lote = lote.id_lote;
 
-select * from sensorlogs join sensores on sensorlogs.fk_sensores = sensores.id_sensores -- todos os logs do lote onde o id do lote é = 40
+select id_sensorlogs, umidade, temperatura, data_sensor, tipo_sensor, n_lotes, altitude from sensorlogs join sensores on sensorlogs.fk_sensores = sensores.id_sensores -- todos os logs do lote onde o id do lote é = 40
 join lote on sensores.fk_lote = lote.id_lote where lote.id_lote = 40;  

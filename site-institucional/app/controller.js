@@ -35,7 +35,7 @@ router.get('/', (request, response) => {
         
         if (data[1] < 18) {
             alertasTemp.push('Alerta de temperatura baixa - ' + data[1].toFixed()+'°C '+ new Date().toLocaleDateString('pt-BR', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
-        } else if (data[1] > 22) {
+        } else if (data[1] > 23) {
             alertasTemp.push('Alerta de temperatura alta - ' + data[1].toFixed()+'°C '+ new Date().toLocaleDateString('pt-BR', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
         }
     })
