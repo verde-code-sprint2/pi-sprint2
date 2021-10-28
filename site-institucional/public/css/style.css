@@ -6,6 +6,7 @@
 body {
     background-color: #e2dede;
 }
+
 .header {
     background-color: #121213;
     border-bottom: 3.5px solid #fff;
@@ -21,9 +22,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-} 
+}
+
 .header .svg_icons {
     display: flex;
+    align-items: center;
 }
 
 .imagens {
@@ -38,16 +41,16 @@ body {
     background-color: #121213;
     position: relative;
 }
+
 .navbar li {
     padding: 20px;
-    margin-top: 10px;
-    
+    list-style: none;
 }
 
 .header a {
     text-decoration: none;
     color: #a0a0a0;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: bold;
     background-color: #121213;
@@ -108,12 +111,12 @@ ul a:hover::after {
     transition: 0.5s;
 }
 
-#user{
+#user {
     stroke: #a0a0a0;
     width: 1.4vw;
 }
 
-#user:hover .st0{
+#user:hover .st0 {
     stroke: #fff;
     transition: 0.5s;
 }
@@ -130,7 +133,7 @@ ul a:hover::after {
     background-color: #121213;
 }
 
-.banner{
+.banner {
     color: #fff;
     height: 600px;
     background-image: url(../assets/images/cafe-principal.jpg);
@@ -138,7 +141,7 @@ ul a:hover::after {
     background-repeat: no-repeat;
 }
 
-.container .banner p{
+.container .banner p {
     margin: 0;
     padding: 0;
     width: 250px;
@@ -186,7 +189,7 @@ ul a:hover::after {
     width: 33%;
 }
 
-.social .box img{
+.social .box img {
     width: 150px;
     align-self: center;
     margin-bottom: 25px;
@@ -254,58 +257,59 @@ footer {
     background-color: #F5F6F7;
     flex: 1;
     height: max-content;
-  }
-  
-  footer .container {
+}
+
+footer .container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  }
-  
-  .map {
+}
+
+.map {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0 0 5% 0;
-  }
-  
-  .map h2 {
+}
+
+.map h2 {
     color: #212121;
     font-size: 1rem;
     text-transform: uppercase;
     margin: 5% 0;
-  }
-  
-  .contact {
+}
+
+.contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0 0 5% 0;
     text-align: center;
-  }
-  
-  .contact h2 {
+}
+
+.contact h2 {
     color: #212121;
     font-size: 1rem;
     text-transform: uppercase;
     margin: 8% 0;
-  }
-  
-  .copyright {
+}
+
+.copyright {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     background-color: #212121;
-  }
-  
-  .copyright .container {
+}
+
+.copyright .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: start;
     align-items: center;
-  }
-  
-  .copyright span {
+    padding: 2%;
+}
+
+.copyright span {
     color: #fff;
-  }
+}

@@ -146,7 +146,6 @@
         if (obj.data.length == 0) {
             return;
         }
-
         var _lastIndexTemp = this.lastIndexTemp;
         this.lastIndexTemp = obj.data.length;
         listTemp = obj.data.slice(_lastIndexTemp);
@@ -176,10 +175,10 @@
         document.getElementById('alt').textContent = obj.altitude + 'm';
     }
 
-
+    get_data();
 
     setInterval(() => {
         get_data();
-        // A Cada 1000ms execute a função get_data()
+        // A Cada 5000ms execute a função get_data()
     }, 2000);
 </script>

@@ -71,7 +71,7 @@
       </div>
       <ul class="navbar">
         <li><a href="./index.html">Inicio</a></li>
-        <li><a href="">Simulador</a></li>
+        <li><a href="#">Simulador</a></li>
         <li><a href="./digitalbook.html">Caderno de Campo Digital</a></li>
         <li><a href="./about.html">Sobre nós</a></li>
       </ul>
@@ -121,7 +121,7 @@
 
           <div id='dropdown'>
             <div id="dropdown2">
-              <a id="a_login" href="#">Login</a>
+              <a id="a_login" href="./login.html">Login</a>
               <span style="color: #a0a0a0;">|</span>
               <a id="a_register" href="./register.html">Cadastro</a>
             </div>
@@ -174,19 +174,12 @@
     </div>
 
 
-    <div class="footer">
+    <div class="copyright">
       <div class="container">
-        <a href="">
-          <h4>Acessibilidade</h4>
-        </a>
-        <a href="">
-          <h4>Termos e condições</h4>
-        </a>
-        <a href="">
-          <h4>Privacidade</h4>
-        </a>
+        <span>&copy;Copyright 2019 | AGROTIS</span>
       </div>
     </div>
+
   </footer>
 </body>
 
@@ -215,6 +208,7 @@
       10: 'novembro',
       11: 'dezembro'
     }
+
     const monthsData = await fetch('http://localhost:3000/weather', {
         method: 'GET'
       })

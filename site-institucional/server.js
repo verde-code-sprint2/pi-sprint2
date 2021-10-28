@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const axios = require('axios');
+const path = require('path');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -48,9 +49,9 @@ app.get('/altitude', async (req,res) => {
   res.json(response.data)
 })
 
-app.use('/api', require('./app/controller'));
+app.use('/api', require('./controller'));
 
-app.use(express.static('./public'))
+app.use(express.static(path.resolve('./','public')))
 
 const server = app.listen(3000);
 console.log("Express started at port", server.address().port);

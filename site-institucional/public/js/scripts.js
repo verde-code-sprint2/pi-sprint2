@@ -12,3 +12,10 @@ function redirectTo(directory) {
   console.log('location[directory]', location[directory])
   window.location.href = 'http://127.0.0.1:5500/PI/HTML/projetos/AGROTIS/pagina-institucional/'+location[directory]
 }
+
+// var num = 1 // int
+// var string = '' // string
+// var arr = [] //Array
+// var obj = {
+//   key: 'value'
+// } // Object

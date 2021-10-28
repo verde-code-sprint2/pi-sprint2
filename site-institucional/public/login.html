@@ -8,6 +8,8 @@
     <title>Agrotis</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./database/users.js"></script>
+    <script src="./js/login.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
@@ -75,7 +77,7 @@
 
                     <div id='dropdown'>
                         <div id="dropdown2">
-                            <a id="a_login" href="#">Login</a>
+                            <a id="a_login" href="./login.html">Login</a>
                             <span style="color: #a0a0a0;">|</span>
                             <a id="a_register" href="./register.html">Cadastro</a>
                         </div>
@@ -88,9 +90,10 @@
     <div class="container_login">
         <div class="boxes_login">
             <img src="./assets/images/logo.ico" alt="">
-            <input id="ipt_login" type="text" placeholder="CNPJ">
+            <input id="ipt_login" type="text" placeholder="email">
             <input id="ipt_pass" type="password" placeholder="Senha">
-            <button onclick="window.location.href='./logged.html'">Entrar</button>
+
+            <button onclick="authenticate({email: ipt_login.value, password: ipt_pass.value})">Entrar</button>
         </div>
     </div>
     <footer>
@@ -114,19 +117,24 @@
         </div>
 
 
-        <div class="footer">
+        <div class="copyright">
             <div class="container">
-                <a href="">
-                    <h4>Acessibilidade</h4>
-                </a>
-                <a href="">
-                    <h4>Termos e condições</h4>
-                </a>
-                <a href="">
-                    <h4>Privacidade</h4>
-                </a>
+                <span>&copy;Copyright 2019 | AGROTIS</span>
+                <div>
+                    <a target="_blank"
+                        href="https://api.whatsapp.com/send?phone=5511979675330&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida">
+                        <img src="./assets/svg/whatsapp.svg" width="30px"></img>
+                    </a>
+                    <a target="_blank" href="#">
+                        <img src="./assets/svg/mail.svg" width="36px"></img>
+                    </a>
+                    <a target="_blank" href="tel:5511979675330">
+                        <img src="./assets/svg/phone.svg" width="36px"></img>
+                    </a>
+                </div>
             </div>
         </div>
+
     </footer>
 </body>
 <script>
