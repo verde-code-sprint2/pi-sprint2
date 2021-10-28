@@ -15,7 +15,7 @@ git clone https://github.com/verde-code-sprint2/pi-sprint2.git
 
 ou [clique aqui](https://github.com/verde-code-sprint2/pi-sprint2/archive/refs/heads/main.zip) para fazer o download.
 
-- Entre na pasta do projeto ```sh cd site-institucional```
+- Entre na pasta do projeto ```cd site-institucional```
 
 - Execute o comando ```npm install``` ou ```yarn``` para instalar as dependências do projeto
 
