@@ -25,9 +25,9 @@ ou [clique aqui](https://github.com/verde-code-sprint2/pi-sprint2/archive/refs/h
 ## Contribuidores 
 ___
 <div style="display:flex;">
-<img src="https://github.com/LucasTI79.png" width="200px" height="200">
-<img src="./assets/pequeno.jpeg" width="200" height="200px">
-<img src="./assets/rosario.jpg" width="200" height="200px">
-<img src="./assets/gustavo.jpg" width="200px" height="200">
-<img src="./assets/souza.jpeg" width="200px" height="200">
+<img src="https://github.com/LucasTI79.png" width="200px" height="200" title="Lucas Feitosa">
+<img src="./assets/pequeno.jpeg" width="200" height="200px" title="Matheus Pequeno">
+<img src="./assets/rosario.jpg" width="200" height="200px" title="Pedro Rosário">
+<img src="./assets/gustavo.jpg" width="200px" height="200" title="Gustavo Moraes">
+<img src="./assets/souza.jpeg" width="200px" height="200" title="Matheus Souza">
 </div>
