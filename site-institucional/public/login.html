@@ -95,8 +95,8 @@
     <div class="container_login">
         <div class="boxes_login">
             <img src="./assets/images/logo.ico" alt="">
-            <input id="ipt_login" type="text" placeholder="Email">
-            <input id="ipt_pass" type="password" placeholder="Senha">
+            <input id="ipt_login" type="text" placeholder="Email" />
+            <input id="ipt_pass" type="password" placeholder="Senha" minlength="8">
 
             <button onclick="authenticate({email: ipt_login.value, password: ipt_pass.value})">Entrar</button>
         </div>

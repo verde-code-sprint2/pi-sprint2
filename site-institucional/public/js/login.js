@@ -10,7 +10,7 @@ function authenticate({email, password}){
     // Verifica se o array tem o usuário e a senha q a pessoa digitou
     const userAuthenticate = users && users.filter(user => user.email === email && user.password === password);
 
-    if(userAuthenticate){
+    if(userAuthenticate.length > 0){
       alert(`Bem-vindo(a) ${userAuthenticate[0].username}`);
       // session.setUser(username);
       window.location.href = "./dashboard.html"

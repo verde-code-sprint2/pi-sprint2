@@ -35,6 +35,10 @@ body {
     margin-bottom: 20px;
 }
 
+.boxes_login input:invalid {
+    border: 1px red solid;
+}
+
 .boxes_login button {
     padding: 10px 60px;
     border-radius: 20px;
