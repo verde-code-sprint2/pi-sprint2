@@ -1,5 +1,5 @@
 body {
-    background-image: url(../assets/images/cafe-principal-blur.jpg);
+    background-image: url('../assets/images/cafe-blur.jpg');
 }
 
 .container_login {
@@ -7,6 +7,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 1% 0;
+    /* z-index: 2; */
+
 }
 
 .boxes_login {
@@ -19,6 +21,8 @@ body {
     justify-content: center;
     border-radius: 70px;
     padding: 2%;
+    /* opacity: 0.95; */
+    z-index: 1;
 }
 
 

@@ -34,6 +34,7 @@ function register({username, email, password}){
         throw new Error('usuário já existe')
       }
       // session.set('users', [...users, {username, email, password}])
+      users.push({username, email, password})
       alert('Cadastrado com sucesso')
       // window.location.href = "./login.html"
     }else{

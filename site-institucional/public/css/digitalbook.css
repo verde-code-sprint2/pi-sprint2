@@ -1,18 +1,23 @@
-
 .book {
     margin: 10px;
-    background-image: url(../assets/images/a.jpeg);
-    height: 40vh;
-    background-repeat: no-repeat;
     margin-top: 20px;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-self: center;
+    width: 90vw;
 }
 
-.content {
+.book li {
+    /* list-style: none; */
+    margin-left: 10px;
+}
+
+.content .container {
     padding: 0;
-}
-
-.content {
-    margin: 0 30px;
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

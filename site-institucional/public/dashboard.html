@@ -25,15 +25,10 @@
     <div class="navbar">
         <a href="./logged.html"><img class="logo" src="./assets/images/logo.ico" alt=""></a>
         <ul>
-            <a href="">
-                <li>Consulta</li>
+            <a href="./index.html">
+                <li>Inicio</li>
             </a>
-            <a href="">
-                <li>Configurações</li>
-            </a>
-            <a href="">
-                <li>Ajuda</li>
-            </a>
+
         </ul>
     </div>
 
@@ -44,6 +39,7 @@
                 <h3>Média temperatura: <label id='averageTemp'>0.00</label></h3>
                 <h3>Média umidade: <label id='averageMoisture'>0.00</label></h3>
                 <h3>Altitude: <label id='alt'>0.00</label></h3>
+                <h3>Lote #001</h3>
             </section>
             <section style="width:80vw">
                 <canvas id="chart"></canvas>
@@ -168,7 +164,6 @@
             obj.alertasTemp.forEach(alerta => {
                 document.getElementById('div_alerta').innerHTML += '<p>' + alerta + '</p>';
             })
-
         });
         document.getElementById('averageTemp').textContent = obj.averageTemp + '°C';
         document.getElementById('averageMoisture').textContent = obj.averageMoisture + '%';
