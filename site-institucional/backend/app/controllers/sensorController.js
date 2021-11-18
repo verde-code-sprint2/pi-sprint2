@@ -30,6 +30,23 @@ router.get('/humidity', (request, response, next) => {
 
 });
 
+router.get('/allData', (req, res) => {
+    let sumHumidity = ArduinoData.List.reduce((a, b) => a + b, 0);
+    let averageHumidity = (sumHumidity / ArduinoData.List.length).toFixed(2);
+
+    let sumTemp = ArduinoData.ListTemp.reduce((a, b) => a + b, 0);
+    let averageTemp = (sumTemp / ArduinoData.ListTemp.length).toFixed(2);
+
+    res.json({
+        dataTemp: ArduinoData.ListTemp,
+        dataHumidity: ArduinoData.List,
+        totalHumidity: ArduinoData.List.length,
+        totalTemp: ArduinoData.ListTemp.length,
+        averageTemp: isNaN(averageTemp) ? 0 : averageTemp,
+        averageHumidity: isNaN(averageHumidity) ? 0 : averageHumidity,
+    })
+})
+
 router.post('/sendData', (request, response) => {
     temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
     umidade = ArduinoData.List[ArduinoData.List.length - 1];
