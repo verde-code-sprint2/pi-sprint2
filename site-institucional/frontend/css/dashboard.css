@@ -119,3 +119,94 @@ a:hover {
 #div_alertas {
     overflow-y: auto;
 }
+
+.container button {
+    height: 100px;
+    width: 250px;
+    font-size: 48px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    background-color: #121213;
+    color: #a0a0a0;
+    margin-bottom: 50px;
+    border: 0px solid;
+}
+
+button:hover {
+    color: #fff;
+    transition: 0.5s;
+}
+
+.container .buttons {
+    display: flex;
+}
+
+#lote .conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+#lote .conteudo input {
+    margin: 100px 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    border: solid 1px #000;
+}
+
+.container .bar {
+    background-color: #121213;
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+#safra {
+    display: flex;
+}
+
+#safra .conteudo {
+    display: flex;
+    margin-top: 50px;
+}
+
+.graph {
+    display: flex;
+    flex: 2;
+    background-color: #ff0000;
+    width: 70vw;
+    height: 700px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graph .title {
+    font-size: 35px;
+    border-bottom: 1px solid #212121;
+}
+.year {
+    display: flex;
+    background-color: #00ff00;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.year .title {
+    font-size: 35px;
+    border-bottom: 1px solid #212121;
+}
+
+.colaborator {
+    display: flex;
+    flex: 1;
+    background-color: #00fff0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colaborator .title {
+    font-size: 35px;
+    border-bottom: 1px solid #212121;
+}

@@ -19,6 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="js/funcoes_dashboard.js"></script>
     <style>
         canvas {
             -moz-user-select: none;
@@ -32,8 +33,12 @@
     <div class="navbar">
         <a href="./logged.html"><img class="logo" src="./assets/images/logo.ico" alt=""></a>
         <ul>
-            <a href="./index.html">
-                <li>Inicio</li>
+            <a>
+                <li onclick="inicio()">Inicio</li>
+            </a>
+
+            <a>
+                <li onclick="register()">Cadastro</li>
             </a>
 
         </ul>
@@ -56,41 +61,101 @@
             <canvas id="chart-humidity"></canvas>
             <section>
     </div> -->
-    <div class="container">
-        <div>
+    <span id="content_start">
+        <div class="container">
+            <div>
 
-            <section>
-                <h2>Sensor DHT11 - Temperatura/Umidade</h2>
-                <h3>Média temperatura: <label id='averageTemp'>0.00</label></h3>
-                <h3>Média umidade: <label id='averageMoisture'>0.00</label></h3>
-                <h3>Altitude: <label id='alt'>0.00</label></h3>
-                <h3>Temperatura ideal - 18°C à 23°C</h3>
-                <h3>Umidade ideal - 80%</h3>
-                <span>
-                    <span>Lote </span>
-                    <select>
-                        <option value="001">001</option>
-                        <option value="002">002</option>
-                        <option value="003">003</option>
-                    </select>
-                </span>
-            </section>
-            <section style="width:80vw">
-                <canvas id="chart"></canvas>
                 <section>
-        </div>
-        <div class="alertas">
-            <h2>Alertas</h2>
-            <div id="div_alertas">
-                <div id="temp">
-                    <h3>Temperatura</h3>
-                </div>
-                <div id="umidade">
-                    <h3>Umidade</h3>
+                    <h2>Sensor DHT11 - Temperatura/Umidade</h2>
+                    <h3>Média temperatura: <label id='averageTemp'>0.00</label></h3>
+                    <h3>Média umidade: <label id='averageMoisture'>0.00</label></h3>
+                    <h3>Altitude: <label id='alt'>0.00</label></h3>
+                    <h3>Temperatura ideal - 18°C à 23°C</h3>
+                    <h3>Umidade ideal - 80%</h3>
+                    <span>
+                        <span>Lote </span>
+                        <select>
+                            <option value="001">001</option>
+                            <option value="002">002</option>
+                            <option value="003">003</option>
+                        </select>
+                    </span>
+                </section>
+                <section style="width:80vw">
+                    <canvas id="chart"></canvas>
+                    <section>
+            </div>
+            <div class="alertas">
+                <h2>Alertas</h2>
+                <div id="div_alertas">
+                    <div id="temp">
+                        <h3>Temperatura</h3>
+                    </div>
+                    <div id="umidade">
+                        <h3>Umidade</h3>
+                    </div>
                 </div>
             </div>
         </div>
+    </span>
+    <span style="display: none;" id="content_nav">
+        <div class="container">
+            <div class="bar">
+                <div class="buttons">
+                    <button onclick="reg_lote()">Lote</button>
+                    <button onclick="reg_safra()">Safra</button>
+                    <button onclick="reg_insumo()">Insumo</button>
+                    <button onclick="reg_planta()">Planta</button>
+                </div>
+            </div>
+        </span>
+
+        <span style="display: none;" id="content_lote">
+        
+        <section id="lote">
+            <div class="conteudo">
+                <div class="inputs">
+                    N lote
+                    <input type="text" id="ipt_lote">
+                    
+                    <button onclick="bt_lote()">Cadastrar Lote</button>
+                </div>
+            </div>
+        </section>
+
+            <div class="alertas">
+                <h2>Lotes</h2>
+                <div id="div_alertas">
+                    <div id="temp">
+                        <h3>Número do Lote</h3>
+                        <div id="text_lote"></div>
+                    </div>
+                </div>
+            </div>
+        </span>
+        
+        <span id="content_safra" style="display: none">
+            <section id="safra">
+                <div class="conteudo">
+                    <div class="year">
+                        <div class="title">Safra</div>
+                        <div class="text"></div>
+                    </div>
+
+                    <div class="graph">
+                        <div class="title">Gráfico</div>
+                        <div class="graphic"></div>
+                    </div>
+
+                    <div class="colaborator">
+                        <div class="title">Colaboradores</div>
+                        <div class="text"></div>
+                    </div>
+                </div>
+            </section>
+        </span>
     </div>
+
 </body>
 
 </html>
@@ -266,6 +331,7 @@
     }, 2000);
 </script> -->
 <script>
+    var lotes = [];
     var context = document.getElementById("chart").getContext("2d");
 
     context.canvas.width = 1000;
@@ -395,4 +461,11 @@
         get_data();
         // A Cada 5000ms execute a função get_data()
     }, 2000);
-</script> -->
+
+
+    function bt_lote() {
+        lotes.push(ipt_lote.value);
+
+        text_lote.innerHTML += `${lotes[lotes.length -1]} <br>`
+    }
+</script>
