@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-    width: 15vw;
+    width: 20vw;
     height: 100vh;
     background-color: #121213;
     color: #a0a0a0;
@@ -146,12 +146,37 @@ button:hover {
     flex-direction: column;
 }
 
-#lote .conteudo input {
-    margin: 100px 10px;
-    height: 40px;
-    width: 400px;
-    border-radius: 10px;
-    border: solid 1px #000;
+#content_lote .alertas {
+    margin-top: 100px;
+}
+
+.conteudo_span {
+    display:none;
+}
+
+.conteudo_span table{
+    margin-top: 100px;
+}
+
+td, th {
+    text-align: center;
+    font-weight: lighter;
+    height: 20px;
+    width: 300px;
+    padding: 0 20px;
+}
+
+th {
+    background-color: #121213;
+    color: #fff;
+}
+
+td {
+    border: 1px solid #121213   ;
+}
+
+.show {
+    display: block !important;
 }
 
 .container .bar {

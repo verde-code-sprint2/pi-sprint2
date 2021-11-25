@@ -41,6 +41,10 @@
                 <li onclick="register()">Cadastro</li>
             </a>
 
+            <a>
+                <li onclick="lote()">Lotes</li>
+            </a>    
+
         </ul>
     </div>
     <!-- <div>
@@ -102,39 +106,89 @@
         <div class="container">
             <div class="bar">
                 <div class="buttons">
-                    <button onclick="reg_lote()">Lote</button>
-                    <button onclick="reg_safra()">Safra</button>
-                    <button onclick="reg_insumo()">Insumo</button>
-                    <button onclick="reg_planta()">Planta</button>
+                    <button class="buttons_cadastro" div="content_lote" >Lote</button>
+                    <button class="buttons_cadastro" div="content_safra" >Safra</button>
+                    <!-- <button class="buttons_cadastro" div="content_insumo" >Insumo</button> -->
+                    <!-- <button class="buttons_cadastro" div="content_planta" >Planta</button> -->
                 </div>
             </div>
         </span>
 
-        <span style="display: none;" id="content_lote">
-        
-        <section id="lote">
-            <div class="conteudo">
-                <div class="inputs">
-                    N lote
-                    <input type="text" id="ipt_lote">
-                    
-                    <button onclick="bt_lote()">Cadastrar Lote</button>
-                </div>
-            </div>
-        </section>
+        <span class="conteudo_span show" id="content_lote">
 
-            <div class="alertas">
-                <h2>Lotes</h2>
-                <div id="div_alertas">
-                    <div id="temp">
-                        <h3>Número do Lote</h3>
-                        <div id="text_lote"></div>
-                    </div>
-                </div>
-            </div>
+            <table>
+                <th>Número</th>
+                <th>Plantas/ha</th>
+                <th>Tipo</th>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3000 ha</td>
+                    <td>Arábica</td>
+                </tr>
+            </table>
         </span>
         
-        <span id="content_safra" style="display: none">
+        <span id="content_safra" class="conteudo_span">
             <section id="safra">
                 <div class="conteudo">
                     <div class="year">
@@ -462,10 +516,4 @@
         // A Cada 5000ms execute a função get_data()
     }, 2000);
 
-
-    function bt_lote() {
-        lotes.push(ipt_lote.value);
-
-        text_lote.innerHTML += `${lotes[lotes.length -1]} <br>`
-    }
 </script>
