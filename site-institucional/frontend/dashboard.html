@@ -391,8 +391,15 @@
 
     get_data();
 
+    function sendData() {
+        var http = new XMLHttpRequest();
+        http.open('POST', 'http://localhost:3333/api/sendData', false);
+        http.send(null);
+    }
+
     setInterval(() => {
         get_data();
+        sendData();
         // A Cada 5000ms execute a função get_data()
     }, 2000);
 </script> -->
