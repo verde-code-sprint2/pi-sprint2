@@ -25,8 +25,11 @@ app.use((request, response, next) => {
 app.use(express.static(path.resolve(__dirname,'..',"frontend")));
 
 app.use("/", require("./app/routes/index"));
-app.use('/api', require('./app/controllers/sensorController'));
+app.use('/sensors', require('./app/routes/sensor'));
 app.use("/usuarios", require("./app/routes/usuarios"));
+app.use("/lotes", require("./app/routes/lotes"));
+app.use("/safras", require("./app/routes/safras"));
+app.use("/funcionarios", require("./app/routes/funcionarios"));
 // app.use("/sensor", require("./app/routes/sensor"));
 
 app.listen(PORTA || 3333, function () {
