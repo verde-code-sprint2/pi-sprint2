@@ -1,5 +1,6 @@
 var mysql = require("mysql2");
 var sql = require('mssql');
+require('dotenv').config();
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
@@ -19,10 +20,10 @@ var sqlServerConfig = {
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
-    host: "localhost",
-    user: "gustavo",
-    database: "acquatec",
-    password: "Guga159753@",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASS,
 };
 
 function executar(instrucao) {

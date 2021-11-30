@@ -2,7 +2,7 @@ const express = require('express');
 const { ArduinoData } = require('../serial')
 const router = express.Router();
 const { executar } = require('../../database/config')
-const db = require('../../database/connection');
+const database = require('../../database/config');
 
 router.get('/temperature', (request, response, next) => {
 
@@ -48,18 +48,25 @@ router.get('/allData', (req, res) => {
 })
 
 router.post('/sendData', (request, response) => {
+    fk_sensor = 50;
     temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
     umidade = ArduinoData.List[ArduinoData.List.length - 1];
 
-    let data_agora = new Date()
+    var sql =   `
+    insert into sensorlogs values 
+        (null,now(),${umidade},${temperatura},${fk_sensor});
+    `;
 
-    var sql = "INSERT INTO medida(temperatura, umidade, momento, fk_aquario) VALUES(?)";
-    values = [temperatura, umidade, data_agora, 1];
-    db.query(sql, [values], function(err, result){
-        if(err) throw err;
-        console.log("Medidas inseridas: " + result.affectedRows)
-    });
-    response.sendStatus(200);
+    console.log('EXECUTANDO A INSTRUÇÃO:\n' + sql)
+    
+    return database.executar(sql).then(resposta => {
+        console.log("Medidas inseridas", resposta.affectedRows)
+        response.status(200).send();
+    }).catch(err => {
+        console.log('ERRO NA INSERÇÃO' + err)
+        response.status(500).send(err)
+    })
+    
 })
 
 module.exports = router;
