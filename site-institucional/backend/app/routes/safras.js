@@ -3,6 +3,10 @@ var router = express.Router();
 
 var safraController = require("../controllers/safraController");
 
+router.get("/:idSafra", function (req, res) {
+  safraController.listarSafra(req, res);
+});
+
 router.get("/", function (req, res) {
     safraController.listar(req, res);
 });

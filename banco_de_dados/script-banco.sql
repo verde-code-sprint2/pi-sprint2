@@ -42,7 +42,7 @@ create table usuario(
 id_usuario int primary key auto_increment,
 senha varchar(50),
 cargo varchar (45)
-) auto_increment = 30;
+) auto_increment = 30;t
 
 insert into usuario values
 (null,'101215','Agricultor'),
@@ -99,8 +99,21 @@ foreign key (fk_sensores) references sensores (id_sensores)
 )auto_increment=70;
 
 insert into sensorlogs values 
-(null,2021-07-27,'50%',23,50),
-(null,2021-04-19,'40%',20,51);
+(null,'2021-07-27',80,23,50),
+(null,'2021-04-19',60,20,51);
+
+
+CREATE TABLE alertas(
+	idAlerta INT PRIMARY KEY AUTO_INCREMENT,
+    fk_sensor INT,
+    dataAlerta DATETIME,
+    umidade INT,
+    temperatura DECIMAL(4,2),
+    typeAlert VARCHAR(15),
+    CHECK(typeAlert = 'umidade' OR typeAlert = 'temperatura')
+);
+
+INSERT INTO alertas VALUES (null, 50, now(), 30, 22, 'umidade');
 
 select * from planta;
 select * from propriedade;
@@ -110,3 +123,4 @@ select * from lote;
 select * from sensores;
 select * from safra;
 select * from sensorlogs;
+select * from alertas;

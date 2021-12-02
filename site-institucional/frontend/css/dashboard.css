@@ -151,28 +151,74 @@ button:hover {
 }
 
 .conteudo_span {
-    display:none;
+    display: none;
+    width: 100%;
 }
 
-.conteudo_span table{
-    margin-top: 100px;
+#content_lote table {
+    width: 96%;
+    margin: 2% 2% 2% 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-td, th {
-    text-align: center;
-    font-weight: lighter;
-    height: 20px;
-    width: 300px;
-    padding: 0 20px;
+#content_safra table {
+    width: 60%;
+    margin: 2% 2% 2% 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#content_safra .container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+
+
+thead {
+    visibility: visible;
+    background: #363636;
+    color: #f0f0f0;
+}
+
+tr {
+    border: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    padding: 5px;
+    display: table-row;
+    border-bottom-width: 1px;
+    margin-bottom: 0;
+}
+
+tr:nth-child(even) {
+    background: #D4D4D4;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
 }
 
 th {
-    background-color: #121213;
-    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
 }
 
+
 td {
-    border: 1px solid #121213   ;
+    display: table-cell;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: none;
+}
+
+td:last-child {
+    border-bottom: none;
 }
 
 .show {
@@ -189,11 +235,14 @@ td {
 
 #safra {
     display: flex;
+    margin-top: 20px;
+    flex-direction: column;
 }
 
 #safra .conteudo {
     display: flex;
     margin-top: 50px;
+
 }
 
 .graph {
@@ -210,6 +259,7 @@ td {
     font-size: 35px;
     border-bottom: 1px solid #212121;
 }
+
 .year {
     display: flex;
     background-color: #00ff00;
@@ -224,14 +274,22 @@ td {
 }
 
 .colaborator {
+    width: 30%;
     display: flex;
-    flex: 1;
-    background-color: #00fff0;
+    background-color: #212121;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
+    color: white;
+    height: 100%;
 }
 
 .colaborator .title {
-    font-size: 35px;
+    font-size: 26px;
     border-bottom: 1px solid #212121;
+    margin: 10px 0;
+}
+
+.colaborator #title p {
+    margin-top: 20px;
 }

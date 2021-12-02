@@ -1,9 +1,26 @@
 var funcionariosModel = require("../models/funcionariosModel");
 
+function listBySafra(req, res) {
+    const fk_safra = req.params.fk_safra;
+    funcionariosModel.listBySafra(fk_safra)
+          .then(function (resultado) {
+              if (resultado.length > 0) {
+                  res.status(200).json(resultado);
+              } else {
+                  res.status(204).send("Nenhum resultado encontrado!")
+              }
+          }).catch(
+              function (erro) {
+                  console.log(erro);
+                  console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                  res.status(500).json(erro.sqlMessage);
+              }
+          );
+  }
+  
 
-function listar(req, res) {
-  const fk_safra = req.params.fk_safra;
-  funcionariosModel.listar(fk_safra)
+function list(req, res) {
+  funcionariosModel.list()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -56,6 +73,7 @@ function cadastrar(req, res) {
 
 module.exports = {
  
-    listar,
+    list,
+    listBySafra
  
 }

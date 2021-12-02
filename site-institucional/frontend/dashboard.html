@@ -38,33 +38,15 @@
             </a>
 
             <a>
-                <li onclick="register()">Cadastro</li>
+                <li onclick="register()">Detalhes</li>
             </a>
 
-            <a>
+            <!-- <a>
                 <li onclick="lote()">Lotes</li>
-            </a>    
+            </a> -->
 
         </ul>
     </div>
-    <!-- <div>
-        <section>
-            <h1>Sensor LM35 - Temperatura</h1>
-            <h2>Média: <label id='average'>0.00</label></h2>
-        </section>
-        <section style="width:50%">
-            <canvas id="chart"></canvas>
-            <section>
-    </div>
-    <div>
-        <section>
-            <h1>Sensor DHT11 - Umidade</h1>
-            <h2>Média: <label id='averageHumidity'>0.00</label></h2>
-        </section>
-        <section style="width:50%">
-            <canvas id="chart-humidity"></canvas>
-            <section>
-    </div> -->
     <span id="content_start">
         <div class="container">
             <div>
@@ -78,10 +60,8 @@
                     <h3>Umidade ideal - 80%</h3>
                     <span>
                         <span>Lote </span>
-                        <select>
-                            <option value="001">001</option>
-                            <option value="002">002</option>
-                            <option value="003">003</option>
+                        <select onchange="handleChangeLote()" id="cbo_lotes">
+
                         </select>
                     </span>
                 </section>
@@ -106,381 +86,332 @@
         <div class="container">
             <div class="bar">
                 <div class="buttons">
-                    <button class="buttons_cadastro" div="content_lote" >Lote</button>
-                    <button class="buttons_cadastro" div="content_safra" >Safra</button>
+                    <button class="buttons_cadastro" div="content_lote">Lote</button>
+                    <button class="buttons_cadastro" div="content_safra">Safra</button>
                     <!-- <button class="buttons_cadastro" div="content_insumo" >Insumo</button> -->
                     <!-- <button class="buttons_cadastro" div="content_planta" >Planta</button> -->
                 </div>
             </div>
-        </span>
+    </span>
 
-        <span class="conteudo_span show" id="content_lote">
+    <span class="conteudo_span show" id="content_lote">
+        <h2>Para cadastrar um novo lote, entre em contato com o nosso time!</h2>
+        <table>
+            <thead>
+                <th>N° Lote</th>
+                <th>Hectares</th>
+                <th>Plantação</th>
+                <th>Insumo usado</th>
+                <th>Altitude</th>
+                <th>Responsável</th>
+            </thead>
+            <tbody id="tbodyLotes">
 
-            <table>
-                <th>Número</th>
-                <th>Plantas/ha</th>
-                <th>Tipo</th>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>3000 ha</td>
-                    <td>Arábica</td>
-                </tr>
-            </table>
-        </span>
-        
-        <span id="content_safra" class="conteudo_span">
-            <section id="safra">
-                <div class="conteudo">
-                    <div class="year">
-                        <div class="title">Safra</div>
-                        <div class="text"></div>
-                    </div>
+            </tbody>
+        </table>
+    </span>
 
-                    <div class="graph">
-                        <div class="title">Gráfico</div>
-                        <div class="graphic"></div>
-                    </div>
+    <span id="content_safra" class="conteudo_span">
+        <section id="safra">
+            <div>
+                <b>Escolha a safra que deseja ver os dados</b>
 
-                    <div class="colaborator">
-                        <div class="title">Colaboradores</div>
-                        <div class="text"></div>
-                    </div>
+                <select id="cbo_safras" onchange="handleChangeSafra()"></select>
+            </div>
+
+            <div class="container">
+                <table>
+                    <thead>
+                        <th>Quantidade de colheita</th>
+                        <th>Data Plantio</th>
+                        <th>Data Colheita</th>
+                    </thead>
+                    <tbody id="tbodySafra">
+
+                    </tbody>
+                </table>
+                <div class="colaborator">
+                    <div class="title">Funcionários</div>
+                    <div id="text"></div>
                 </div>
-            </section>
-        </span>
+            </div>
+
+            <!-- <div class="conteudo">
+                <div class="year">
+                    <div class="title">Safra</div>
+                    <div class="text"></div>
+                </div>
+
+                <div class="graph">
+                    <div class="title">Gráfico</div>
+                    <div class="graphic"></div>
+                </div>
+
+                
+            </div> -->
+        </section>
+    </span>
     </div>
 
 </body>
 
 </html>
-<!-- <script>
+<script>
+    fetch('http://localhost:3333/lotes').then(res => {
+        if (res.ok) {
+            res.json().then(json => {
+                console.log('JSON', json)
+                json.length > 0 && json.forEach(lote => {
+                    cbo_lotes.innerHTML +=
+                        `
+                        <option value="${lote.id_lote}">${lote.n_lotes}</option>
+                        `
+                    let tr = document.createElement('tr');
+                    let n_lote = document.createElement('td')
+                    let hec = document.createElement('td')
+                    let plant = document.createElement('td')
+                    let insumo = document.createElement('td')
+                    let alt = document.createElement('td')
+                    let resp = document.createElement('td')
+
+                    n_lote.innerHTML = lote.n_lotes
+                    hec.innerHTML = lote.hectares
+                    plant.innerHTML = lote.nome_planta
+                    insumo.innerHTML = lote.nome_insumo
+                    alt.innerHTML = lote.altitude
+                    resp.innerHTML = lote.nome_usuario
+
+                    tr.appendChild(n_lote)
+                    tr.appendChild(hec)
+                    tr.appendChild(plant)
+                    tr.appendChild(insumo)
+                    tr.appendChild(alt)
+                    tr.appendChild(resp)
+                    console.log('tr', tr)
+                    document.getElementById('tbodyLotes').appendChild(tr)
+
+                    // document.getElementById('tbodyLotes').innerHTML +=
+                    //     `
+                    //     <tr>
+                    //         <td>${lote.n_lotes}</td>
+                    //         <td>${lote.hectares}</td>
+                    //         <td>${lote.nome_planta}</td>
+                    //         <td>${lote.nome_insumo}</td>
+                    //         <td>${lote.altitude}</td>
+                    //         <td>${lote.nome_usuario}</td>
+                    //     </tr>
+                    // `
+                })
+
+                get_data();
+                get_alerts();
+
+            })
+        }
+    })
+
+    fetch('http://localhost:3333/safras/').then(res => {
+        if (res.ok) {
+            tbodyLotes.innerHTML = '';
+            res.json().then(json => {
+                tbodySafra.innerHTML += `
+                        <tr>
+                            <td>${json[0].qtd_colheita}</td>
+                            <td>${formatDate(json[0].data_plantio)}</td>
+                            <td>${formatDate(json[0].data_colheita)}</td>
+                        </tr>
+                    `
+
+                json.length && json.forEach(safra => {
+
+
+                    cbo_safras.innerHTML +=
+                        `
+                        <option value="${safra.id_safra}">${safra.id_safra}</option>
+                        `
+
+                });
+
+                fetch('http://localhost:3333/funcionarios/' + json[0].id_safra).then(
+                    res => {
+                        if (res.ok) {
+                            text.innerHTML = '';
+                            res.json().then(json => {
+                                json.length && json.forEach(func => {
+                                    text.innerHTML +=
+                                        `<p>${func.nome_usuario}</p>`
+                                })
+
+                            })
+                        }
+                    })
+
+            })
+        }
+    })
+
+
+
     var context = document.getElementById("chart").getContext("2d");
+
     context.canvas.width = 1000;
     context.canvas.height = 300;
 
-    var configuration = {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: "Temperatura x Tempo",
-                type: 'line',
-                borderColor: ['#ff3232'],
-                backgroundColor: ['#ff7f7f']
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    distribution: 'series',
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Temperature'
-                    },
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            animation: {
-                duration: 0
-            }
-        }
-    };
-
-    var chart = new Chart(context, configuration);
-
-    //Função para obter os dados de temperatura do server
-
-    //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-    //hora de montar/atualizar o gráfico
-    this.lastIndexTemp = 0;
     this.time = 0;
 
-    function get_data() {
-
-        var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3333/api/temperature', false);
-        http.send(null);
-
-        var obj = JSON.parse(http.responseText);
-        if (obj.data.length == 0) {
-            return;
-        }
-
-        var _lastIndexTemp = this.lastIndexTemp;
-        this.lastIndexTemp = obj.data.length;
-        listTemp = obj.data.slice(_lastIndexTemp);
-
-        listTemp.forEach(data => {
-            //Máximo de 60 itens exibidos no gráfico
-            if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-                chart.data.labels.shift();
-                chart.data.datasets[0].data.shift();
-            }
-            chart.data.labels.push(this.time++);
-            chart.data.datasets[0].data.push(parseFloat(data));
-            chart.update();
-        });
-
-        document.getElementById('average').textContent = obj.average;
-    }
-
-    //Second Graphic
-
-    var context2 = document.getElementById("chart-humidity").getContext("2d");
-    context2.canvas.width = 1000;
-    context2.canvas.height = 300;
-
-    var humidity = {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: "Umidade x Tempo",
-                type: 'line',
-                borderColor: ['#3232ff'],
-                backgroundColor: ['#9999ff']
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    distribution: 'series',
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Humidity'
-                    },
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            animation: {
-                duration: 0
-            }
-        }
-    };
-
-    var chartHumidity = new Chart(context2, humidity);
-
-    //Função para obter os dados de temperatura do server
-
-
-    //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-    //hora de montar/atualizar o gráfico
-    this.lastIndexTempHumidity = 0;
-    this.timeHumidity = 0;
-
-    function get_dataHumidity() {
-
-        var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3333/api/humidity', false);
-        http.send(null);
-
-        var obj = JSON.parse(http.responseText);
-        if (obj.data.length == 0) {
-            return;
-        }
-
-        var _lastIndexTemp = this.lastIndexTempHumidity;
-        this.lastIndexTempHumidity = obj.data.length;
-        listTemp = obj.data.slice(_lastIndexTemp);
-
-        listTemp.forEach(data => {
-            //Máximo de 60 itens exibidos no gráfico
-            if (chartHumidity.data.labels.length == 10 && chartHumidity.data.datasets[0].data.length == 10) {
-                chartHumidity.data.labels.shift();
-                chartHumidity.data.datasets[0].data.shift();
-            }
-
-            chartHumidity.data.labels.push(this.time++);
-            chartHumidity.data.datasets[0].data.push(parseFloat(data));
-            chartHumidity.update();
-        });
-
-        document.getElementById('averageHumidity').textContent = obj.average;
-    }
-
-    get_dataHumidity();
-
-    function sendData() {
-        var http = new XMLHttpRequest();
-        http.open('POST', 'http://localhost:3333/api/sendData', false);
-        http.send(null);
-    }
-
-    setInterval(() => {
+    function handleChangeLote() {
+        chart.destroy();
         get_data();
-        get_dataHumidity();
-        sendData();
-    }, 2000);
-</script> -->
-<script>
-    var lotes = [];
-    var context = document.getElementById("chart").getContext("2d");
+        // this.time = 0;
+    }
 
-    context.canvas.width = 1000;
-    context.canvas.height = 300;
+    function handleChangeSafra() {
+        fetch('http://localhost:3333/safras/' + cbo_safras.value).then(res => {
+            if (res.ok) {
+                res.json().then(json => {
+                    json.length && json.forEach(safra => {
+                        tbodySafra.innerHTML = `
+                        <tr>
+                            <td>${safra.qtd_colheita}</td>
+                            <td>${formatDate(safra.data_plantio)}</td>
+                            <td>${formatDate(safra.data_colheita)}</td>
+                        </tr>
+                    `
 
-    var configuration = {
-        type: 'line',
-        data: {
-            datasets: [{
-                    label: "Umidade",
-                    type: 'line',
-                    yAxisID: 'A',
-                    borderColor: ['#00F'],
-                    // backgroundColor: ['#00D']
-                },
-                {
-                    label: "Temperatura",
-                    type: 'line',
-                    yAxisID: 'B',
-                    borderColor: ['#ff3232'],
-                    // backgroundColor: ['#ff7f7f']
-                }
-            ],
-        },
-        options: {
-            z: 1,
-            scales: {
-                xAxes: [{
-                    // distribution: 'series',
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }],
-                yAxes: [{
-                        id: 'B',
-                        type: 'linear',
-                        position: 'left',
-                        max: 50,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Temperatura'
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                        }
-                    },
-                    {
-                        id: 'A',
-                        type: 'linear',
-                        position: 'right',
-                        max: 100,
-                        min: 40,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Umidade'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
-            },
-            animation: {
-                duration: 0
+                    });
+                    text.innerHTML = '';
+                    fetch('http://localhost:3333/funcionarios/' + json[0].id_safra).then(
+                        res => {
+                            if (res.ok) {
+
+                                res.json().then(json => {
+                                    json.length && json.forEach(func => {
+                                        text.innerHTML +=
+                                            `<p>${func.nome_usuario}</p>`
+                                    })
+
+                                })
+                            }
+                        })
+
+                })
             }
-        }
-    };
-
-    var chart = new Chart(context, configuration);
+        })
+    }
 
     //Função para obter os dados de temperatura do server
     //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
 
     //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
     //hora de montar/atualizar o gráfico
-    this.lastIndexTemp = 0;
-    this.time = 0;
 
-    function get_data() {
-
+    function get_last_data() {
         var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3333/api/allData', false);
+        http.open('GET', 'http://localhost:3333/sensors/' + cbo_lotes.value + '/last', false);
         http.send(null);
 
         var obj = JSON.parse(http.responseText);
-        if (obj.dataTemp.length == 0) {
+        if (obj.length == 0) {
             return;
         }
 
-        var _lastIndexTemp = this.lastIndexTemp;
+        // console.log('obj', obj)
 
-        this.lastIndexTemp = obj.dataTemp.length;
-        listTemp = obj.dataTemp.slice(_lastIndexTemp);
-        // console.log(obj.alertas)
-        listTemp.forEach(data => {
+        if (chart.data.labels.length == 10) {
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+            chart.data.datasets[1].data.shift();
+        }
+        window.chart.data.labels.push(this.time++)
+        //Dados de umidade vindos da API
+        // console.log('obj umidade temp', obj.dataHumidity, obj.dataTemp)
+        window.chart.data.datasets[0].data.push(obj[0].temperatura);
+        //Dados de temperatura vindos da API
+        window.chart.data.datasets[1].data.push(obj[0].umidade);
+        window.chart.update();
+
+        document.getElementById('averageTemp').textContent = obj[0].avgTemp + '°C';
+        document.getElementById('averageMoisture').textContent = obj[0].avgUmidade + '%';
+    }
+
+    function get_data() {
+
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                        label: "Umidade",
+                        type: 'line',
+                        yAxisID: 'A',
+                        borderColor: ['#00F'],
+                        // backgroundColor: ['#00D']
+                    },
+                    {
+                        label: "Temperatura",
+                        type: 'line',
+                        yAxisID: 'B',
+                        borderColor: ['#ff3232'],
+                        // backgroundColor: ['#ff7f7f']
+                    }
+                ],
+            },
+            options: {
+                z: 1,
+                scales: {
+                    xAxes: [{
+                        // distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                            id: 'B',
+                            type: 'linear',
+                            position: 'left',
+                            max: 50,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        },
+                        {
+                            id: 'A',
+                            type: 'linear',
+                            position: 'right',
+                            max: 100,
+                            min: 40,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }
+                    ]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        window.chart = new Chart(context, configuration);
+
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:3333/sensors/' + cbo_lotes.value, false);
+        http.send(null);
+
+        var obj = JSON.parse(http.responseText);
+        if (obj.length == 0) {
+            return;
+        }
+
+        obj.forEach((data, i) => {
             //Máximo de 60 itens exibidos no gráfico
             if (chart.data.labels.length == 10) {
                 chart.data.labels.shift();
@@ -488,39 +419,67 @@
                 chart.data.datasets[1].data.shift();
             }
 
-            chart.data.labels.push(this.time++);
+            chart.data.labels.push(this.time++)
             //Dados de umidade vindos da API
             // console.log('obj umidade temp', obj.dataHumidity, obj.dataTemp)
-            chart.data.datasets[0].data.push(parseFloat(obj.dataHumidity[obj.dataHumidity.length - 1]));
+            chart.data.datasets[0].data.push(data.temperatura);
             //Dados de temperatura vindos da API
-            chart.data.datasets[1].data.push(parseFloat(obj.dataTemp[obj.dataTemp.length - 1]));
+            chart.data.datasets[1].data.push(data.umidade);
             chart.update();
-            // document.getElementById('temp').innerHTML = '<h3>Temperatura</h3>';
-            // obj.alertasTemp.forEach(alerta => {
-            //     document.getElementById('temp').innerHTML += '<p>' + alerta + '</p>';
-            // })
-            // document.getElementById('umidade').innerHTML = '<h3>Umidade</h3>';
-            // obj.alertasUmidade.forEach(alerta => {
-            //     document.getElementById('umidade').innerHTML += '<p>' + alerta + '</p>';
-            // })
+
         });
-        document.getElementById('averageTemp').textContent = obj.averageTemp + '°C';
-        document.getElementById('averageMoisture').textContent = obj.averageHumidity + '%';
-        // document.getElementById('alt').textContent = obj.altitude + 'm';
+        document.getElementById('averageTemp').textContent = obj[0].avgTemp + '°C';
+        document.getElementById('averageMoisture').textContent = obj[0].avgUmidade + '%';
+        document.getElementById('alt').textContent = obj[0].altitude + 'm';
     }
 
-    get_data();
-
-    function sendData() {
+    function get_alerts() {
         var http = new XMLHttpRequest();
-        http.open('POST', 'http://localhost:3333/api/sendData', false);
+        http.open('GET', 'http://localhost:3333/sensors/alertas', false);
         http.send(null);
+
+        var obj = JSON.parse(http.responseText);
+
+        temp.innerHTML = '<h3>Temperatura</h3>'
+        umidade.innerHTML = '<h3>Umidade</h3>'
+        obj.alertasTemperatura.forEach(alerta => {
+            temp.innerHTML += '<p>'
+            if (alerta.temperatura < 18) {
+                temp.innerHTML += `
+                    Temperatura Alta:`
+            } else {
+                temp.innerHTML += `
+                    Temperatura Baixa:`
+            }
+            temp.innerHTML += `
+             ${alerta.temperatura}°C [${formatDate(alerta.dataAlerta)}]</p>
+            `
+        })
+
+        obj.alertasUmidade.forEach(alerta => {
+
+            umidade.innerHTML += `
+            <p>Umidade baixa em ${alerta.umidade}% [${formatDate(alerta.dataAlerta)}]</p>
+            `
+        })
     }
+
 
     setInterval(() => {
-        get_data();
-        sendData();
+        get_alerts();
+        get_last_data();
         // A Cada 5000ms execute a função get_data()
     }, 2000);
 
+
+    function formatDate(date) {
+        return new Date(date).toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric'
+        })
+    }
 </script>

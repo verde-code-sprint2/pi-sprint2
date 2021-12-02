@@ -4,6 +4,8 @@ const router = express.Router();
 const database = require('../../database/config');
 const sensorController = require('../controllers/sensorController')
 
+
+
 router.get('/alertas', (req, res) => {
     sensorController.buscarAlertas(req, res)
 })
@@ -51,21 +53,30 @@ router.get('/allData', (req, res) => {
     })
 })
 
+router.get('/:idLote/last', (req, res) => {
+    sensorController.listLastDataByLote(req, res)
+})
+
+
+router.get('/:idLote', (req, res) => {
+    sensorController.listDataByLote(req, res)
+})
+
 
 setInterval(() => {
-    fk_sensor = 50;
+    fk_sensor = (Math.random() * (51 - 50) + 50).toFixed();
     temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
     umidade = ArduinoData.List[ArduinoData.List.length - 1];
 
     var sql =   `
     insert into sensorlogs values 
-        (null,now(),${umidade},${temperatura},${fk_sensor});
+        (null,now(),${umidade},${temperatura ? temperatura.toFixed(2) : null},${fk_sensor});
     `;
 
-    if(umidade < 20){
+    if(umidade < 40){
         instrucao1 = 
         `
-        INSERT INTO alertas VALUES (null, ${fk_sensor}, now(), ${umidade}, ${temperatura}, 'umidade');
+        INSERT INTO alertas VALUES (null, ${fk_sensor}, now(), ${umidade}, ${temperatura ? temperatura.toFixed(2) : null}, 'umidade');
         `;
         database.executar(instrucao1).then(resposta => {
             console.log("Alerta de umidade inserido", umidade)
@@ -76,7 +87,7 @@ setInterval(() => {
 
     if(temperatura < 18 || temperatura > 26){
         instrucao2 = `
-        INSERT INTO alertas VALUES (null, ${fk_sensor}, now(), ${umidade}, ${temperatura}, 'temperatura');
+        INSERT INTO alertas VALUES (null, ${fk_sensor}, now(), ${umidade}, ${temperatura ? temperatura.toFixed(2) : null}, 'temperatura');
         `;
 
         database.executar(instrucao2).then(resposta => {
@@ -86,7 +97,7 @@ setInterval(() => {
         })
     }
 
-    console.log('EXECUTANDO A INSTRUÇÃO:\n' + sql)
+    // console.log('EXECUTANDO A INSTRUÇÃO:\n' + sql)
     
     database.executar(sql).then(resposta => {
         console.log("Medidas inseridas", resposta.affectedRows)
